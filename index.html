@@ -12,9 +12,9 @@
   <nav class="bg-blue-600 text-white p-4 flex justify-between items-center">
     <h1 class="text-xl font-bold">Cricket Player Shop</h1>
     <div class="flex gap-6 text-sm">
-      <span>💰 Budget: <span id="budget">2500</span></span>
-      <span>🛒 Cart: <span id="cart-count">0</span></span>
-      <span>📦 Left: <span id="items-left">6</span></span>
+      <span>💰 Budget: <span>2500</span></span>
+      <span>🛒 Cart: <span>0</span></span>
+      <span>📦 Left: <span>6</span></span>
     </div>
   </nav>
 
@@ -22,19 +22,49 @@
   <div class="flex flex-col md:flex-row p-6 gap-6">
 
     <!-- Cards Section -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 flex-1">
-      <!-- Card Template -->
-      <script>
-        const players = [
-          { name: "Shakib Al Hasan", category: "All-rounder", price: 500 },
-          { name: "Tamim Iqbal", category: "Batsman", price: 400 },
-          { name: "Mashrafe Mortaza", category: "Bowler", price: 350 },
-          { name: "Mushfiqur Rahim", category: "Wicketkeeper", price: 450 },
-          { name: "Mustafizur Rahman", category: "Bowler", price: 300 },
-          { name: "Litton Das", category: "Batsman", price: 500 }
-        ];
-      </script>
-      <div id="card-container" class="contents"></div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 flex-1">
+      <!-- Card -->
+      <div class="bg-white shadow-md rounded-lg p-4">
+        <h2 class="text-lg font-semibold">Shakib Al Hasan</h2>
+        <p class="text-sm text-gray-600">Category: All-rounder</p>
+        <p class="text-sm text-gray-600">Price: 500</p>
+        <button class="cart-btn mt-2 bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">Add to Cart</button>
+      </div>
+
+      <div class="bg-white shadow-md rounded-lg p-4">
+        <h2 class="text-lg font-semibold">Tamim Iqbal</h2>
+        <p class="text-sm text-gray-600">Category: Batsman</p>
+        <p class="text-sm text-gray-600">Price: 400</p>
+        <button class="cart-btn mt-2 bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">Add to Cart</button>
+      </div>
+
+      <div class="bg-white shadow-md rounded-lg p-4">
+        <h2 class="text-lg font-semibold">Mashrafe Mortaza</h2>
+        <p class="text-sm text-gray-600">Category: Bowler</p>
+        <p class="text-sm text-gray-600">Price: 350</p>
+        <button class="cart-btn mt-2 bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">Add to Cart</button>
+      </div>
+
+      <div class="bg-white shadow-md rounded-lg p-4">
+        <h2 class="text-lg font-semibold">Mushfiqur Rahim</h2>
+        <p class="text-sm text-gray-600">Category: Wicketkeeper</p>
+        <p class="text-sm text-gray-600">Price: 450</p>
+        <button class="cart-btn mt-2 bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">Add to Cart</button>
+      </div>
+
+      <div class="bg-white shadow-md rounded-lg p-4">
+        <h2 class="text-lg font-semibold">Mustafizur Rahman</h2>
+        <p class="text-sm text-gray-600">Category: Bowler</p>
+        <p class="text-sm text-gray-600">Price: 300</p>
+        <button class="cart-btn mt-2 bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">Add to Cart</button>
+      </div>
+
+      <div class="bg-white shadow-md rounded-lg p-4">
+        <h2 class="text-lg font-semibold">Litton Das</h2>
+        <p class="text-sm text-gray-600">Category: Batsman</p>
+        <p class="text-sm text-gray-600">Price: 500</p>
+        <button class="cart-btn mt-2 bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">Add to Cart</button>
+      </div>
     </div>
 
     <!-- My Cart Section -->
@@ -42,7 +72,7 @@
       <h2 class="text-xl font-bold mb-4">🛒 My Cart</h2>
 
       <!-- Cart Table -->
-      <table class="w-full text-sm text-left mb-4">
+      <table class=" w-full text-sm text-left mb-4">
         <thead>
           <tr class="border-b">
             <th class="py-2">Name</th>
@@ -50,100 +80,22 @@
             <th class="py-2">Price</th>
           </tr>
         </thead>
-        <tbody id="cart-table-body">
-          <!-- Items will be added here -->
+        <tbody id="selected-player">
+          <!-- JS will populate rows here -->
         </tbody>
       </table>
 
       <!-- Totals and Coupon -->
-      <div class="text-sm font-medium mb-2">Total Cost: <span id="total-cost">0</span></div>
+      <div  class="text-sm font-medium mb-2">Total Cost: <span id="total-cost">0</span></div>
 
-      <input type="text" id="coupon-input" placeholder="Apply Coupon" class="w-full border px-3 py-2 rounded mb-2" />
-      <button onclick="applyCoupon()" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 w-full mb-4">Apply</button>
+      <input type="text" placeholder="Apply Coupon" class="w-full border px-3 py-2 rounded mb-2" />
+      <button class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 w-full mb-4">Apply</button>
 
       <div class="text-sm font-bold">Grand Total: <span id="grand-total">0</span></div>
     </div>
 
   </div>
 
-  <!-- JavaScript -->
-  <!-- <script>
-    
-    const cardContainer = document.getElementById("card-container");
-    const cartTableBody = document.getElementById("cart-table-body");
-    const totalCostEl = document.getElementById("total-cost");
-    const grandTotalEl = document.getElementById("grand-total");
-    const cartCountEl = document.getElementById("cart-count");
-    const itemsLeftEl = document.getElementById("items-left");
-    const budgetEl = document.getElementById("budget");
-
-    let cart = [];
-    let totalCost = 0;
-    let budget = 2500;
-
-    // Render cards
-    players.forEach((player, index) => {
-      const card = document.createElement("div");
-      card.className = "bg-white shadow-md rounded-lg p-4";
-      card.innerHTML = `
-        <h2 class="text-lg font-semibold">${player.name}</h2>
-        <p class="text-sm text-gray-600">Category: ${player.category}</p>
-        <p class="text-sm text-gray-600">Price: ${player.price}</p>
-        <button onclick="addToCart(${index})" class="mt-2 bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">Add to Cart</button>
-      `;
-      cardContainer.appendChild(card);
-    });
-
-    function addToCart(index) {
-      const player = players[index];
-      if (budget < player.price) {
-        alert("Not enough budget!");
-        return;
-      }
-
-      cart.push(player);
-      totalCost += player.price;
-      budget -= player.price;
-
-      updateCartUI();
-    }
-
-    function updateCartUI() {
-      cartTableBody.innerHTML = "";
-      cart.forEach(item => {
-        const row = document.createElement("tr");
-        row.innerHTML = `
-          <td class="py-1">${item.name}</td>
-          <td class="py-1">${item.category}</td>
-          <td class="py-1">${item.price}</td>
-        `;
-        cartTableBody.appendChild(row);
-      });
-
-      totalCostEl.textContent = totalCost;
-      grandTotalEl.textContent = totalCost;
-      cartCountEl.textContent = cart.length;
-      itemsLeftEl.textContent = players.length - cart.length;
-      budgetEl.textContent = budget;
-    }
-
-    function applyCoupon() {
-      const coupon = document.getElementById("coupon-input").value.trim();
-      let discount = 0;
-
-      if (coupon === "BD10") {
-        discount = totalCost * 0.1;
-      } else if (coupon === "BD20") {
-        discount = totalCost * 0.2;
-      } else {
-        alert("Invalid coupon!");
-        return;
-      }
-
-      const grandTotal = totalCost - discount;
-      grandTotalEl.textContent = grandTotal;
-    }
-  </script> -->
 
   <script src="./index.js"></script>
 </body>
