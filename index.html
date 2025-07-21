@@ -88,9 +88,11 @@
       <!-- Totals and Coupon -->
       <div  class="text-sm font-medium mb-2">Total Cost: <span id="total-cost">0</span></div>
 
-      <input type="text" placeholder="Apply Coupon" class="w-full border px-3 py-2 rounded mb-2" />
-      <button class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 w-full mb-4">Apply</button>
+      <input type="text" placeholder="Apply Coupon" id="couponInput" class="w-full border px-3 py-2 rounded mb-2" />
+      <button onclick="applyCoupon()" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 w-full mb-4">Apply</button>
+      <p id="discount-message" class="text-green-600 font-bold mt-2">
 
+      </p>
       <div class="text-sm font-bold">Grand Total: <span id="grand-total">0</span></div>
     </div>
 
