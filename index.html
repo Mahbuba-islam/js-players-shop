@@ -12,9 +12,9 @@
   <nav class="bg-blue-600 text-white p-4 flex justify-between items-center">
     <h1 class="text-xl font-bold">Cricket Player Shop</h1>
     <div class="flex gap-6 text-sm">
-      <span>💰 Budget: <span>2500</span></span>
-      <span>🛒 Cart: <span>0</span></span>
-      <span>📦 Left: <span>6</span></span>
+      <span>💰 Budget: <span id="budget-id">2500</span></span>
+      <span>🛒 Cart: <span id="cart-id">0</span></span>
+      <span>📦 Left: <span id="left-player">0</span></span>
     </div>
   </nav>
 
@@ -22,47 +22,47 @@
   <div class="flex flex-col md:flex-row p-6 gap-6">
 
     <!-- Cards Section -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 flex-1">
+    <div id="all-players"  class="grid grid-cols-1 md:grid-cols-2 gap-6 flex-1">
       <!-- Card -->
-      <div class="bg-white shadow-md rounded-lg p-4">
-        <h2 class="text-lg font-semibold">Shakib Al Hasan</h2>
-        <p class="text-sm text-gray-600">Category: All-rounder</p>
-        <p class="text-sm text-gray-600">Price: 500</p>
+      <div class="bg-white shadow-md rounded-lg p-4 players">
+        <h2 class="text-lg font-semibold player-name">Shakib Al Hasan</h2>
+        <p class="text-sm text-gray-600 player-category">Category: All-rounder</p>
+        <p class="text-sm text-gray-600 player-price">Price: 500</p>
+        <button class="cart-btn mt-2 bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600 ">Add to Cart</button>
+      </div>
+
+      <div class="bg-white shadow-md rounded-lg p-4 players">
+        <h2 class="text-lg font-semibold player-name">Tamim Iqbal</h2>
+        <p class="text-sm text-gray-600 player-category">Category: Batsman</p>
+        <p class="text-sm text-gray-600 player-price">Price: 400</p>
         <button class="cart-btn mt-2 bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">Add to Cart</button>
       </div>
 
-      <div class="bg-white shadow-md rounded-lg p-4">
-        <h2 class="text-lg font-semibold">Tamim Iqbal</h2>
-        <p class="text-sm text-gray-600">Category: Batsman</p>
-        <p class="text-sm text-gray-600">Price: 400</p>
+      <div class="bg-white shadow-md rounded-lg p-4 players">
+        <h2 class="text-lg font-semibold player-name">Mashrafe Mortaza</h2>
+        <p class="text-sm text-gray-600 player-category">Category: Bowler</p>
+        <p class="text-sm text-gray-600 player-price">Price: 350</p>
         <button class="cart-btn mt-2 bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">Add to Cart</button>
       </div>
 
-      <div class="bg-white shadow-md rounded-lg p-4">
-        <h2 class="text-lg font-semibold">Mashrafe Mortaza</h2>
-        <p class="text-sm text-gray-600">Category: Bowler</p>
-        <p class="text-sm text-gray-600">Price: 350</p>
+      <div class="bg-white shadow-md rounded-lg p-4 players">
+        <h2 class="text-lg font-semibold player-name">Mushfiqur Rahim</h2>
+        <p class="text-sm text-gray-600 player-category">Category: Wicketkeeper</p>
+        <p class="text-sm text-gray-600 player-price">Price: 450</p>
         <button class="cart-btn mt-2 bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">Add to Cart</button>
       </div>
 
-      <div class="bg-white shadow-md rounded-lg p-4">
-        <h2 class="text-lg font-semibold">Mushfiqur Rahim</h2>
-        <p class="text-sm text-gray-600">Category: Wicketkeeper</p>
-        <p class="text-sm text-gray-600">Price: 450</p>
+      <div class="bg-white shadow-md rounded-lg p-4 players">
+        <h2 class="text-lg font-semibold player-name">Mustafizur Rahman</h2>
+        <p class="text-sm text-gray-600 player-category">Category: Bowler</p>
+        <p class="text-sm text-gray-600 player-price">Price: 300</p>
         <button class="cart-btn mt-2 bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">Add to Cart</button>
       </div>
 
-      <div class="bg-white shadow-md rounded-lg p-4">
-        <h2 class="text-lg font-semibold">Mustafizur Rahman</h2>
-        <p class="text-sm text-gray-600">Category: Bowler</p>
-        <p class="text-sm text-gray-600">Price: 300</p>
-        <button class="cart-btn mt-2 bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">Add to Cart</button>
-      </div>
-
-      <div class="bg-white shadow-md rounded-lg p-4">
-        <h2 class="text-lg font-semibold">Litton Das</h2>
-        <p class="text-sm text-gray-600">Category: Batsman</p>
-        <p class="text-sm text-gray-600">Price: 500</p>
+      <div class="bg-white shadow-md rounded-lg p-4 players">
+        <h2 class="text-lg font-semibold player-name">Litton Das</h2>
+        <p class="text-sm text-gray-600 player-category">Category: Batsman</p>
+        <p class="text-sm text-gray-600 player-price">Price: 500</p>
         <button class="cart-btn mt-2 bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-600">Add to Cart</button>
       </div>
     </div>
@@ -72,7 +72,7 @@
       <h2 class="text-xl font-bold mb-4">🛒 My Cart</h2>
 
       <!-- Cart Table -->
-      <table class=" w-full text-sm text-left mb-4">
+      <table class="w-full text-sm text-left mb-4">
         <thead>
           <tr class="border-b">
             <th class="py-2">Name</th>
